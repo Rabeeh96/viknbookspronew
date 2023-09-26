@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35.452" height="45.12" viewBox="0 0 35.452 45.12">
+  <g id="report" transform="translate(0 0)">
+    <path id="Path_1704" data-name="Path 1704" d="M11.25,20.25H24.141v3.223H11.25Z" transform="translate(-3.193 5.532)" fill="#bebebe"/>
+    <path id="Path_1705" data-name="Path 1705" d="M11.25,14.625H30.587v3.223H11.25Z" transform="translate(-3.193 3.1)" fill="#bebebe"/>
+    <path id="Path_1706" data-name="Path 1706" d="M11.25,25.875h8.057V29.1H11.25Z" transform="translate(-3.193 7.964)" fill="#bebebe"/>
+    <path id="Path_1707" data-name="Path 1707" d="M37.854,7.084H33.019V5.473A3.223,3.223,0,0,0,29.8,2.25H16.905a3.223,3.223,0,0,0-3.223,3.223V7.084H8.848a3.223,3.223,0,0,0-3.223,3.223v33.84A3.223,3.223,0,0,0,8.848,47.37H37.854a3.223,3.223,0,0,0,3.223-3.223V10.307A3.223,3.223,0,0,0,37.854,7.084ZM16.905,5.473H29.8v6.446H16.905ZM37.854,44.147H8.848V10.307h4.834v4.834H33.019V10.307h4.834Z" transform="translate(-5.625 -2.25)" fill="#bebebe"/>
+  </g>
+</svg>
