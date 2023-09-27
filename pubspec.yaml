@@ -49,6 +49,9 @@ dev_dependencies:
   google_fonts: ^6.1.0
   flutter_svg: ^2.0.7
   fl_chart:
+  intl: ^0.18.1
+  syncfusion_flutter_charts: ^23.1.38
+  provider:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -74,6 +77,18 @@ flutter:
     - assets/svg/search-normal.svg
     - assets/svg/light.svg
     - assets/svg/moneybag.svg
+    - assets/svg/clock.svg
+    - assets/svg/calendar.svg
+    - assets/png/building-bank.png
+    - assets/png/cash.png
+    - assets/png/cash-banknote.png
+    - assets/svg/menu_dash.svg
+    - assets/svg/menu_dash2.svg
+    - assets/svg/report-analytics.svg
+    - assets/svg/Person.svg
+    - assets/svg/building-bank.svg
+    - assets/svg/cash.svg
+    - assets/svg/cash-banknote.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
