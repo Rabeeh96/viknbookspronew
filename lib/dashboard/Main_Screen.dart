@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import '../custom/global.dart';
+import '../custom/theme_change/theme.dart';
 import 'dash_page.dart';
 
 class ViknBooksMainScreen extends StatefulWidget {
@@ -14,11 +15,34 @@ class ViknBooksMainScreen extends StatefulWidget {
 }
 
 class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
+  ThemeManager _themeManager = ThemeManager();
+  @override
+  void dispose() {
+    _themeManager.removeListener(themeListener);
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    _themeManager.addListener(themeListener);
+    super.initState();
+  }
+
+  themeListener(){
+    if(mounted){
+      setState(() {
+
+      });
+    }
+  }
 
   ValueNotifier<int> tabIndex = ValueNotifier<int>(1);
 
   @override
   Widget build(BuildContext context) {
+    TextTheme _textTheme = Theme.of(context).textTheme;
+    bool isDark = Theme.of(context).brightness == Brightness.dark;
+
     final mHeight = MediaQuery.of(context).size.height;
     final mWidth = MediaQuery.of(context).size.width;
 
@@ -26,6 +50,8 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -33,20 +59,27 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
             icon: SvgPicture.asset('assets/svg/edit.svg')),
         title: Text(
           "Dashboard ",
-          style:
-              customisedStyleBold(context, Colors.black, FontWeight.w500, 16.0),
+          style:  customisedStyleBold(context, isDark?Colors.white: Colors.black, FontWeight.w500, 16.0),
         ),
         titleSpacing: 0,
         elevation: 0,
         actions: [
+      Switch(value: _themeManager.themeMode == ThemeMode.dark, onChanged: (newValue) {
+        _themeManager.toggleTheme(newValue);
+      }),
           IconButton(
-              onPressed: () {},
+
+              onPressed: () {
+
+
+              },
               icon: SvgPicture.asset(
                 "assets/svg/light.svg",
                 width: 15.75,
                 height: 15.75,
               )),
           IconButton(
+
               onPressed: () {},
               icon: SvgPicture.asset(
                 "assets/svg/notification-bing.svg",
@@ -54,6 +87,7 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                 height: 15.75,
               )),
           IconButton(
+
               onPressed: () {},
               icon: SvgPicture.asset(
                 "assets/svg/search-normal.svg",
@@ -111,26 +145,21 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                         child: FittedBox(
                           child: Container(
                             width: mWidth * .16,
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: tabIndex.value == 1
-                                      ? Color(0xff0A9EF3)
-                                      : Colors.transparent,
-                                  width: 4,
-                                ),
-                              ),
-                            ),
+
                             child: Column(
                               children: [
+                                spaceWithHeight(5),
+
                                 SvgPicture.asset(
-                                  'assets/svg/dashboard-reference.svg',
+                                  'assets/svg/menu_dash.svg',
                                   color: tabIndex.value == 1
                                       ? Color(0xff0A9EF3)
                                       : Color(0xffBEBEBE),
-                                  height: mHeight * .030,
-                                  width: mWidth * .030,
+                                  height: 17,
+                                  width: 17,
                                 ),
+                                spaceWithHeight(2),
+
                                 Text(
                                   "Dashboard",
                                   style: TextStyle(
@@ -138,9 +167,7 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                                           ? Color(0xff0A9EF3)
                                           : Color(0xffBEBEBE)),
                                 ),
-                                SizedBox(
-                                  height: 5,
-                                ),
+                                spaceWithHeight(5),
                               ],
                             ),
                           ),
@@ -156,28 +183,21 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                         child: FittedBox(
                           child: Container(
                             width: mWidth * .16,
-                            decoration: BoxDecoration(
-                              //  borderRadius: BorderRadius.circular(25.0),
 
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: tabIndex.value == 2
-                                      ? Color(0xff0A9EF3)
-                                      : Colors.transparent,
-                                  width: 4,
-                                ),
-                              ),
-                            ),
                             child: Column(
                               children: [
+                                spaceWithHeight(5),
+
                                 SvgPicture.asset(
-                                  'assets/svg/book.svg',
+                                  'assets/svg/menu_dash2.svg',
                                   color: tabIndex.value == 2
                                       ? Color(0xff0A9EF3)
                                       : Color(0xffBEBEBE),
-                                  height: mHeight * .030,
-                                  width: mWidth * .030,
+                                  height:17,
+                                  width: 17,
                                 ),
+                                spaceWithHeight(2),
+
                                 Text(
                                   "Daybook",
                                   style: TextStyle(
@@ -185,9 +205,8 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                                           ? Color(0xff0A9EF3)
                                           : Color(0xffBEBEBE)),
                                 ),
-                                SizedBox(
-                                  height: 5,
-                                ),
+                                spaceWithHeight(5),
+
                               ],
                             ),
                           ),
@@ -203,28 +222,21 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                           child: FittedBox(
                             child: Container(
                               width: mWidth * .16,
-                              decoration: BoxDecoration(
-                                //  borderRadius: BorderRadius.circular(25.0),
 
-                                border: Border(
-                                  bottom: BorderSide(
-                                    color: tabIndex.value == 3
-                                        ? Color(0xff0A9EF3)
-                                        : Colors.transparent,
-                                    width: 4,
-                                  ),
-                                ),
-                              ),
                               child: Column(
                                 children: [
+                                  spaceWithHeight(5),
+
                                   SvgPicture.asset(
-                                    'assets/svg/list(1).svg',
+                                    'assets/svg/report-analytics.svg',
                                     color: tabIndex.value == 3
                                         ? Color(0xff0A9EF3)
                                         : Color(0xffBEBEBE),
-                                    height: mHeight * .030,
-                                    width: mWidth * .030,
+                                    height:17,
+                                    width: 17,
                                   ),
+                                  spaceWithHeight(2),
+
                                   Text(
                                     "Menu",
                                     style: TextStyle(
@@ -246,28 +258,21 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                           child: FittedBox(
                             child: Container(
                               width: mWidth * .16,
-                              decoration: BoxDecoration(
-                                //  borderRadius: BorderRadius.circular(25.0),
 
-                                border: Border(
-                                  bottom: BorderSide(
-                                    color: tabIndex.value == 4
-                                        ? Color(0xff0A9EF3)
-                                        : Colors.transparent,
-                                    width: 4,
-                                  ),
-                                ),
-                              ),
                               child: Column(
                                 children: [
+                                  spaceWithHeight(5),
+
                                   SvgPicture.asset(
-                                    'assets/svg/report(1).svg',
+                                    'assets/svg/Person.svg',
                                     color: tabIndex.value == 4
                                         ? Color(0xff0A9EF3)
                                         : Color(0xffBEBEBE),
-                                    height: mHeight * .030,
-                                    width: mWidth * .030,
+                                    height:17,
+                                    width: 17,
                                   ),
+                                  spaceWithHeight(2),
+
                                   Text(
                                     "Report",
                                     style: TextStyle(
@@ -291,10 +296,7 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                             FittedBox(
                               child: GestureDetector(
                                 child: Container(
-                                  decoration: BoxDecoration(
-                                      //  borderRadius: BorderRadius.circular(25.0),
 
-                                      ),
                                   child: Column(
                                     children: [
                                       SvgPicture.asset(
@@ -312,7 +314,7 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
                         ),
                       ),
                     ],
-                  ),
+                  )
                 ),
               );
             },
@@ -320,30 +322,22 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: Container(
-        height: MediaQuery.of(context).size.height * 0.10,
-        width: MediaQuery.of(context).size.width * 0.2,
-        child: FloatingActionButton.extended(
-          backgroundColor: Color(0xff0A9EF3),
-          elevation: 0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-          onPressed: () {},
-          label: IconButton(
-              icon: SvgPicture.asset(
-                "assets/svg/favorite.svg",
-                height: 22,
-                width: 25,
-              ),
-              onPressed: () {
-                setState(() {
-                  // print("herer");
-                  // dashIndex = 4;
-                  // bottomBarColor(dashIndex);
-                });
-              }),
-        ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xff0A9EF3),
+        elevation: 0,
+       shape:     CircleBorder(),
+        onPressed: () {},
+        child: IconButton(
+            icon: SvgPicture.asset(
+              "assets/svg/favorite.svg",
+              height: 19,
+              width: 19,
+            ),
+            onPressed: () {
+
+            }),
       ),
+
     );
 
   }
