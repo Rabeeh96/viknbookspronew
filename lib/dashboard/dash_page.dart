@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:get/get.dart';
 
 import '../custom/global.dart';
 
@@ -43,7 +42,7 @@ class _DashboardPageState extends State<DashboardPage> {
       SlideCard(
           cardDetail: Card(
         ///  #FFF9BE, #FFFFFF00
-        color: const Color(0xffF0F0F0),
+        color:Get.isDarkMode?  Color(0xffF0F0F0):Color(0xff061421),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -70,7 +69,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Text(
                           "Call Suhail for discussing Step \ncounting app.",
                           style: customisedStyleBold(
-                              context, Colors.black, FontWeight.w500, 14.0),
+                              context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w500, 14.0),
                         ),
                       ],
                     ),
@@ -97,8 +96,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       children: [
                         SvgPicture.asset(
                           "assets/svg/calendar.svg",
-                          width: 16,
-                          height: 18,
+                            width: MediaQuery.of(context).size.width / 20,
+                            height:MediaQuery.of(context).size.height / 35,
                         ),
                         spaceWithWidth(6),
                         const Text("12/09/2023",
@@ -133,8 +132,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       children: [
                         SvgPicture.asset(
                           "assets/svg/clock.svg",
-                          width: 16,
-                          height: 18,
+                          width: MediaQuery.of(context).size.width / 20,
+                          height:MediaQuery.of(context).size.height / 35,
                         ),
                         spaceWithWidth(6),
                         const Text("12.00",
@@ -149,7 +148,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Text(
                           "Savad  ",
                           style: customisedStyleBold(
-                              context, Colors.black, FontWeight.w400, 14.0),
+                              context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0),
                         ),
                         const Icon(Icons.person),
                       ],
@@ -163,7 +162,7 @@ class _DashboardPageState extends State<DashboardPage> {
       )),
       SlideCard(
           cardDetail: Card(
-        color: const Color(0xffF0F0F0),
+            color:Get.isDarkMode?  Color(0xffF0F0F0):Color(0xff061421),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -181,7 +180,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       Text(
                         "Call Suhail for discussing Step \ncounting app.",
                         style: customisedStyleBold(
-                            context, Colors.black, FontWeight.w500, 14.0),
+                            context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w500, 14.0),
                       ),
                     ],
                   ),
@@ -257,7 +256,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       Text(
                         "Savad  ",
                         style: customisedStyleBold(
-                            context, Colors.black, FontWeight.w400, 14.0),
+                            context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0),
                       ),
                       const Icon(Icons.person),
                     ],
@@ -270,7 +269,7 @@ class _DashboardPageState extends State<DashboardPage> {
       )),
       SlideCard(
           cardDetail: Card(
-        color: const Color(0xffF0F0F0),
+            color:Get.isDarkMode?  Color(0xffF0F0F0):Color(0xff061421),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -288,7 +287,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       Text(
                         "Call Suhail for discussing Step \ncounting app.",
                         style: customisedStyleBold(
-                            context, Colors.black, FontWeight.w500, 14.0),
+                            context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w500, 14.0),
                       ),
                     ],
                   ),
@@ -364,7 +363,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       Text(
                         "Savad  ",
                         style: customisedStyleBold(
-                            context, Colors.black, FontWeight.w400, 14.0),
+                            context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0),
                       ),
                       const Icon(Icons.person),
                     ],
@@ -411,7 +410,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 child: Text(
                   "Organization",
                   style: customisedStyleBold(
-                      context, Colors.black, FontWeight.w400, 16.0),
+                      context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0),
                 ),
               ),
             ],
@@ -427,7 +426,7 @@ class _DashboardPageState extends State<DashboardPage> {
               child: Text(
                 "Upcoming Activities",
                 style: customisedStyleBold(
-                    context, Colors.black, FontWeight.w400, 16.0),
+                    context,Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0),
               ),
             ),
           ),
@@ -474,7 +473,7 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Center(
               child: Text("Overview",
                   style: customisedStyleBold(
-                      context, Colors.black, FontWeight.w400, 16.0)),
+                      context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
             ),
           ),
           spaceWithHeight(10),
@@ -482,10 +481,16 @@ class _DashboardPageState extends State<DashboardPage> {
             height: MediaQuery.of(context).size.height / 15,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                gradient: const LinearGradient(colors: [
+                gradient: Get.isDarkMode? LinearGradient(colors: [
                   Color(0xffF0F9FC),
                   Color(0xffF8F8F8),
-                ])),
+                ]):LinearGradient(colors: [
+
+
+    Color(0xff061421),
+    Color(0xff061421),
+    ]
+                )),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -495,17 +500,20 @@ class _DashboardPageState extends State<DashboardPage> {
                     Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 12,
-                        height: MediaQuery.of(context).size.height / 20,
+                        width: MediaQuery.of(context).size.width / 11,
+                        height: MediaQuery.of(context).size.height / 24,
                         decoration: BoxDecoration(
                           color: const Color(0xffD9F6FF),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SvgPicture.asset(
-                          "assets/svg/moneybag.svg",
-                          width: 16,
-                          height: 18,
-                          color: const Color(0xff065B76),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: SvgPicture.asset(
+                            "assets/svg/moneybag.svg",
+                            width: MediaQuery.of(context).size.width / 20,
+                            height:MediaQuery.of(context).size.height / 25,
+                            color: const Color(0xff065B76),
+                          ),
                         ),
                       ),
                     ),
@@ -515,7 +523,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       children: [
                         Text(" Revenue",
                             style: customisedStyleBold(
-                                context, Colors.black, FontWeight.w400, 16.0)),
+                                context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                         RichText(
                           text: TextSpan(
                             //  style: TextStyle(color: Colors.black, fontSize: 36),
@@ -544,7 +552,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 RichText(
                   text: TextSpan(
-                    //  style: TextStyle(color: Colors.black, fontSize: 36),
+                    //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                     children: <TextSpan>[
                       TextSpan(
@@ -554,7 +562,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       TextSpan(
                           text: '2,78,000.00 ',
                           style: customisedStyleBold(context,
-                              const Color(0xff000000), FontWeight.w400, 14.0)),
+                               Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0)),
                     ],
                   ),
                 )
@@ -566,10 +574,16 @@ class _DashboardPageState extends State<DashboardPage> {
             height: MediaQuery.of(context).size.height / 15,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                gradient: const LinearGradient(colors: [
+                gradient: Get.isDarkMode? LinearGradient(colors: [
                   Color(0xffFFF5F5),
                   Color(0xffF8F8F8),
-                ])),
+                ]):LinearGradient(colors: [
+
+
+                  Color(0xff061421),
+                  Color(0xff061421),
+                ]
+                )),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -579,17 +593,21 @@ class _DashboardPageState extends State<DashboardPage> {
                     Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 12,
-                        height: MediaQuery.of(context).size.height / 20,
+                        width: MediaQuery.of(context).size.width / 11,
+                        height: MediaQuery.of(context).size.height / 24,
                         decoration: BoxDecoration(
                           color: const Color(0xffFFE1E1),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SvgPicture.asset(
-                          "assets/svg/moneybag.svg",
-                          width: 16,
-                          height: 18,
-                          color: const Color(0xff9B0404),
+
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: SvgPicture.asset(
+                            "assets/svg/moneybag.svg",
+                            width: MediaQuery.of(context).size.width / 20,
+                            height:MediaQuery.of(context).size.height / 25,
+                            color: const Color(0xff9B0404),
+                          ),
                         ),
                       ),
                     ),
@@ -599,10 +617,10 @@ class _DashboardPageState extends State<DashboardPage> {
                       children: [
                         Text(" Expense",
                             style: customisedStyleBold(
-                                context, Colors.black, FontWeight.w400, 16.0)),
+                                context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                         RichText(
                           text: TextSpan(
-                            //  style: TextStyle(color: Colors.black, fontSize: 36),
+                            //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                             children: <TextSpan>[
                               TextSpan(
@@ -628,7 +646,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 RichText(
                   text: TextSpan(
-                    //  style: TextStyle(color: Colors.black, fontSize: 36),
+                    //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                     children: <TextSpan>[
                       TextSpan(
@@ -638,7 +656,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       TextSpan(
                           text: '2,78,000.00 ',
                           style: customisedStyleBold(context,
-                              const Color(0xff000000), FontWeight.w400, 14.0)),
+                               Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0)),
                     ],
                   ),
                 )
@@ -650,10 +668,16 @@ class _DashboardPageState extends State<DashboardPage> {
             height: MediaQuery.of(context).size.height / 15,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                gradient: const LinearGradient(colors: [
+                gradient: Get.isDarkMode? LinearGradient(colors: [
                   Color(0xffF1FCF0),
                   Color(0xffF8F8F8),
-                ])),
+                ]):LinearGradient(colors: [
+
+
+                  Color(0xff061421),
+                  Color(0xff061421),
+                ]
+                )),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -663,17 +687,21 @@ class _DashboardPageState extends State<DashboardPage> {
                     Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 12,
-                        height: MediaQuery.of(context).size.height / 20,
+                        width: MediaQuery.of(context).size.width / 11,
+                        height: MediaQuery.of(context).size.height / 24,
                         decoration: BoxDecoration(
                           color: const Color(0xffE0F5E2),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SvgPicture.asset(
-                          "assets/svg/moneybag.svg",
-                          width: 16,
-                          height: 18,
-                          color: const Color(0xff046C0D),
+
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: SvgPicture.asset(
+                            "assets/svg/moneybag.svg",
+    width: MediaQuery.of(context).size.width / 20,
+    height:MediaQuery.of(context).size.height / 25,
+                            color: const Color(0xff046C0D),
+                          ),
                         ),
                       ),
                     ),
@@ -683,10 +711,10 @@ class _DashboardPageState extends State<DashboardPage> {
                       children: [
                         Text(" Profit",
                             style: customisedStyleBold(
-                                context, Colors.black, FontWeight.w400, 16.0)),
+                                context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                         RichText(
                           text: TextSpan(
-                            //  style: TextStyle(color: Colors.black, fontSize: 36),
+                            //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                             children: <TextSpan>[
                               TextSpan(
@@ -712,7 +740,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 RichText(
                   text: TextSpan(
-                    //  style: TextStyle(color: Colors.black, fontSize: 36),
+                    //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                     children: <TextSpan>[
                       TextSpan(
@@ -722,7 +750,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       TextSpan(
                           text: '2,78,000.00 ',
                           style: customisedStyleBold(context,
-                              const Color(0xff000000), FontWeight.w400, 14.0)),
+                               Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0)),
                     ],
                   ),
                 )
@@ -738,7 +766,8 @@ class _DashboardPageState extends State<DashboardPage> {
                 height: MediaQuery.of(context).size.height / 10,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Color(0xffF2F2F2),
+                  color: Get.isDarkMode?Color(0xffF2F2F2): Color(0xff061421),
+
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -749,29 +778,33 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Container(
-                              width: MediaQuery.of(context).size.width / 12,
-                              height: MediaQuery.of(context).size.height / 20,
+                              width: MediaQuery.of(context).size.width / 11,
+                              height: MediaQuery.of(context).size.height / 24,
                               decoration: BoxDecoration(
                                 color: const Color(0xffE4EDFF),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: SvgPicture.asset(
-                                "assets/svg/building-bank.svg",
-                                width: 16,
-                                height: 18,
-                                color: Color(0xff072658),
+
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: SvgPicture.asset(
+                                  "assets/svg/building-bank.svg",
+                                  width: MediaQuery.of(context).size.width / 20,
+                                  height:MediaQuery.of(context).size.height / 25,
+                                  color: Color(0xff072658),
+                                ),
                               )),
                         ),
                         Text(" Bank",
                             style: customisedStyleBold(
-                                context, Colors.black, FontWeight.w400, 16.0)),
+                                context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: RichText(
                         text: TextSpan(
-                          //  style: TextStyle(color: Colors.black, fontSize: 36),
+                          //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                           children: <TextSpan>[
                             TextSpan(
@@ -785,7 +818,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                 text: '2,78,000.00 ',
                                 style: customisedStyleBold(
                                     context,
-                                    const Color(0xff000000),
+                                     Get.isDarkMode?Colors.black:Colors.white,
                                     FontWeight.w400,
                                     14.0)),
                           ],
@@ -800,7 +833,8 @@ class _DashboardPageState extends State<DashboardPage> {
                 height: MediaQuery.of(context).size.height / 10,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Color(0xffF2F2F2),
+                  color: Get.isDarkMode?Color(0xffF2F2F2):Color(0xff061421),
+
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -811,28 +845,33 @@ class _DashboardPageState extends State<DashboardPage> {
                         Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Container(
-                            width: MediaQuery.of(context).size.width / 12,
-                            height: MediaQuery.of(context).size.height / 20,
+                            width: MediaQuery.of(context).size.width / 11,
+                            height: MediaQuery.of(context).size.height / 24,
                             decoration: BoxDecoration(
                               color: const Color(0xffC2FFD0),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            child: SvgPicture.asset(
-                              "assets/svg/cash.svg",
-                              color: Color(0xff354052),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: SvgPicture.asset(
+                                "assets/svg/cash.svg",
+                                color: Color(0xff354052),
+                                width: MediaQuery.of(context).size.width / 20,
+                                height:MediaQuery.of(context).size.height / 25,
+                              ),
                             ),
                           ),
                         ),
                         Text(" Cash",
                             style: customisedStyleBold(
-                                context, Colors.black, FontWeight.w400, 16.0)),
+                                context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                       ],
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: RichText(
                         text: TextSpan(
-                          //  style: TextStyle(color: Colors.black, fontSize: 36),
+                          //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                           children: <TextSpan>[
                             TextSpan(
@@ -846,7 +885,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                 text: '2,78,000. ',
                                 style: customisedStyleBold(
                                     context,
-                                    const Color(0xff000000),
+                                     Get.isDarkMode?Colors.black:Colors.white,
                                     FontWeight.w400,
                                     13.0)),
                           ],
@@ -863,10 +902,16 @@ class _DashboardPageState extends State<DashboardPage> {
             height: MediaQuery.of(context).size.height / 15,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                gradient: const LinearGradient(colors: [
+                gradient: Get.isDarkMode? LinearGradient(colors: [
                   Color(0xffF0F4FC),
                   Color(0xffF8F8F8),
-                ])),
+                ]):  LinearGradient(colors: [
+
+
+                  Color(0xff061421),
+                  Color(0xff061421),
+                ]
+                )),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -876,28 +921,31 @@ class _DashboardPageState extends State<DashboardPage> {
                     Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 12,
-                        height: MediaQuery.of(context).size.height / 20,
+                        width: MediaQuery.of(context).size.width / 11,
+                        height: MediaQuery.of(context).size.height / 24,
                         decoration: BoxDecoration(
                           color: const Color(0xffDEE5FF),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SvgPicture.asset(
-                          "assets/svg/cash-banknote.svg",
-                          width: 16,
-                          height: 18,
-                          color: Color(0xff10336D),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: SvgPicture.asset(
+                            "assets/svg/cash-banknote.svg",
+                            width: MediaQuery.of(context).size.width / 20,
+                            height:MediaQuery.of(context).size.height / 25,
+                            color: Color(0xff10336D),
+                          ),
                         ),
                       ),
                     ),
                     Text(" Credit",
                         style: customisedStyleBold(
-                            context, Colors.black, FontWeight.w400, 16.0)),
+                            context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                   ],
                 ),
                 RichText(
                   text: TextSpan(
-                    //  style: TextStyle(color: Colors.black, fontSize: 36),
+                    //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                     children: <TextSpan>[
                       TextSpan(
@@ -907,7 +955,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       TextSpan(
                           text: '2,78,000.00 ',
                           style: customisedStyleBold(context,
-                              const Color(0xff000000), FontWeight.w400, 14.0)),
+                               Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0)),
                     ],
                   ),
                 )
@@ -919,11 +967,17 @@ class _DashboardPageState extends State<DashboardPage> {
             height: MediaQuery.of(context).size.height / 15,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                gradient: const LinearGradient(colors: [
+                gradient: Get.isDarkMode? LinearGradient(colors: [
                   Color(0xffF1FCF0),
                   Color(0xffFCF0F7),
                   Color(0xffF8F8F8),
-                ])),
+                ]):  LinearGradient(colors: [
+
+
+                  Color(0xff061421),
+                  Color(0xff061421),
+                ]
+                )),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -933,27 +987,30 @@ class _DashboardPageState extends State<DashboardPage> {
                     Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: Container(
-                        width: MediaQuery.of(context).size.width / 12,
-                        height: MediaQuery.of(context).size.height / 20,
+                        width: MediaQuery.of(context).size.width / 11,
+                        height: MediaQuery.of(context).size.height / 24,
                         decoration: BoxDecoration(
                           color: const Color(0xffFFE0F9),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SvgPicture.asset(
-                          "assets/svg/cash-banknote.svg",
-                          width: 16,
-                          height: 18,
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: SvgPicture.asset(
+                            "assets/svg/cash-banknote.svg",
+                            width: MediaQuery.of(context).size.width / 20,
+                            height:MediaQuery.of(context).size.height / 25,
+                          ),
                         ),
                       ),
                     ),
                     Text(" Debit",
                         style: customisedStyleBold(
-                            context, Colors.black, FontWeight.w400, 16.0)),
+                            context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
                   ],
                 ),
                 RichText(
                   text: TextSpan(
-                    //  style: TextStyle(color: Colors.black, fontSize: 36),
+                    //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                     children: <TextSpan>[
                       TextSpan(
@@ -963,7 +1020,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       TextSpan(
                           text: '2,78,000.00 ',
                           style: customisedStyleBold(context,
-                              const Color(0xff000000), FontWeight.w400, 14.0)),
+                               Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 14.0)),
                     ],
                   ),
                 )
@@ -976,7 +1033,7 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Center(
               child: Text("Total Revenue",
                   style: customisedStyleBold(
-                      context, Colors.black, FontWeight.w400, 16.0)),
+                      context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
             ),
           ),
           Container(
@@ -999,7 +1056,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           children: [
                             RichText(
                               text: TextSpan(
-                                //  style: TextStyle(color: Colors.black, fontSize: 36),
+                                //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                                 children: <TextSpan>[
                                   TextSpan(
@@ -1013,7 +1070,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       text: '2,78,000.00 ',
                                       style: customisedStyleBold(
                                           context,
-                                          const Color(0xff000000),
+                                           Get.isDarkMode?Colors.black:Colors.white,
                                           FontWeight.w400,
                                           14.0)),
                                 ],
@@ -1021,7 +1078,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                             RichText(
                               text: TextSpan(
-                                //  style: TextStyle(color: Colors.black, fontSize: 36),
+                                //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                                 children: <TextSpan>[
                                   TextSpan(
@@ -1047,7 +1104,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           width: MediaQuery.of(context).size.width / 3,
                           height: MediaQuery.of(context).size.height / 24,
                           decoration: BoxDecoration(
-                              color: const Color(0xffEBEBEB),
+                              color: Get.isDarkMode? Color(0xffEBEBEB):Color(0xff1C3347),
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                             child: DropdownButton(
@@ -1062,7 +1119,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   child: Text(
                                     items + "",
                                     style: customisedStyleBold(context,
-                                        Colors.black, FontWeight.normal, 11.0),
+                                        Get.isDarkMode?Colors.black:Colors.white, FontWeight.normal, 11.0),
                                   ),
                                 );
                               }).toList(),
@@ -1095,9 +1152,9 @@ class _DashboardPageState extends State<DashboardPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: Text("Total Revenue",
+              child: Text("Total Expense",
                   style: customisedStyleBold(
-                      context, Colors.black, FontWeight.w400, 16.0)),
+                      context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
             ),
           ),
           spaceWithHeight(8),
@@ -1121,7 +1178,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           children: [
                             RichText(
                               text: TextSpan(
-                                //  style: TextStyle(color: Colors.black, fontSize: 36),
+                                //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                                 children: <TextSpan>[
                                   TextSpan(
@@ -1135,7 +1192,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       text: '2,78,000.00 ',
                                       style: customisedStyleBold(
                                           context,
-                                          const Color(0xff000000),
+                                           Get.isDarkMode?Colors.black:Colors.white,
                                           FontWeight.w400,
                                           14.0)),
                                 ],
@@ -1143,7 +1200,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                             RichText(
                               text: TextSpan(
-                                //  style: TextStyle(color: Colors.black, fontSize: 36),
+                                //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                                 children: <TextSpan>[
                                   TextSpan(
@@ -1169,7 +1226,8 @@ class _DashboardPageState extends State<DashboardPage> {
                           width: MediaQuery.of(context).size.width / 3,
                           height: MediaQuery.of(context).size.height / 24,
                           decoration: BoxDecoration(
-                              color: const Color(0xffEBEBEB),
+                              color: Get.isDarkMode? Color(0xffEBEBEB):Color(0xff1C3347),
+
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                             child: DropdownButton(
@@ -1184,7 +1242,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   child: Text(
                                     items + "",
                                     style: customisedStyleBold(context,
-                                        Colors.black, FontWeight.normal, 11.0),
+                                        Get.isDarkMode?Colors.black:Colors.white, FontWeight.normal, 11.0),
                                   ),
                                 );
                               }).toList(),
@@ -1220,7 +1278,7 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Center(
               child: Text("Total Revenue",
                   style: customisedStyleBold(
-                      context, Colors.black, FontWeight.w400, 16.0)),
+                      context, Get.isDarkMode?Colors.black:Colors.white, FontWeight.w400, 16.0)),
             ),
           ),
           spaceWithHeight(8),
@@ -1244,7 +1302,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           children: [
                             RichText(
                               text: TextSpan(
-                                //  style: TextStyle(color: Colors.black, fontSize: 36),
+                                //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                                 children: <TextSpan>[
                                   TextSpan(
@@ -1258,7 +1316,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                       text: '2,78,000.00 ',
                                       style: customisedStyleBold(
                                           context,
-                                          const Color(0xff000000),
+                                           Get.isDarkMode?Colors.black:Colors.white,
                                           FontWeight.w400,
                                           14.0)),
                                 ],
@@ -1266,7 +1324,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             ),
                             RichText(
                               text: TextSpan(
-                                //  style: TextStyle(color: Colors.black, fontSize: 36),
+                                //  style: TextStyle(color: Get.isDarkMode?Colors.black:Colors.white, fontSize: 36),
 
                                 children: <TextSpan>[
                                   TextSpan(
@@ -1292,7 +1350,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           width: MediaQuery.of(context).size.width / 3,
                           height: MediaQuery.of(context).size.height / 24,
                           decoration: BoxDecoration(
-                              color: const Color(0xffEBEBEB),
+                              color: Get.isDarkMode? Color(0xffEBEBEB):Color(0xff1C3347),
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(
                             child: DropdownButton(
@@ -1307,7 +1365,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   child: Text(
                                     items + "",
                                     style: customisedStyleBold(context,
-                                        Colors.black, FontWeight.normal, 11.0),
+                                        Get.isDarkMode?Colors.black:Colors.white, FontWeight.normal, 11.0),
                                   ),
                                 );
                               }).toList(),

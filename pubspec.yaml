@@ -51,7 +51,8 @@ dev_dependencies:
   fl_chart:
   intl: ^0.18.1
   syncfusion_flutter_charts: ^23.1.38
-  provider:
+  get: ^4.6.5
+  http:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter/material.dart';
-import 'dart:math';
-import 'package:fl_chart/fl_chart.dart';
+
 import '../custom/global.dart';
-import '../custom/theme_change/theme.dart';
 import 'dash_page.dart';
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+
+import 'organization/organization_list.dart';
 
 class ViknBooksMainScreen extends StatefulWidget {
   const ViknBooksMainScreen({Key? key}) : super(key: key);
@@ -15,76 +17,57 @@ class ViknBooksMainScreen extends StatefulWidget {
 }
 
 class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
-  ThemeManager _themeManager = ThemeManager();
-  @override
-  void dispose() {
-    _themeManager.removeListener(themeListener);
-    super.dispose();
-  }
 
-  @override
-  void initState() {
-    _themeManager.addListener(themeListener);
-    super.initState();
-  }
-
-  themeListener(){
-    if(mounted){
-      setState(() {
-
-      });
-    }
-  }
 
   ValueNotifier<int> tabIndex = ValueNotifier<int>(1);
 
   @override
   Widget build(BuildContext context) {
-    TextTheme _textTheme = Theme.of(context).textTheme;
-    bool isDark = Theme.of(context).brightness == Brightness.dark;
+
 
     final mHeight = MediaQuery.of(context).size.height;
     final mWidth = MediaQuery.of(context).size.width;
 
 
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-
+   backgroundColor: Get.isDarkMode? Color(0xff1C3347):Color(0xffFFFFFF),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: SvgPicture.asset('assets/svg/edit.svg')),
+            icon: SvgPicture.asset('assets/svg/edit.svg'),color: Get.isDarkMode? Color(0xff1C3347):Color(0xffFFFFFF),),
         title: Text(
           "Dashboard ",
-          style:  customisedStyleBold(context, isDark?Colors.white: Colors.black, FontWeight.w500, 16.0),
+          style:  customisedStyleBold(context,  Get.isDarkMode?Colors.black:Colors.white, FontWeight.w500, 16.0),
         ),
         titleSpacing: 0,
         elevation: 0,
         actions: [
-      Switch(value: _themeManager.themeMode == ThemeMode.dark, onChanged: (newValue) {
-        _themeManager.toggleTheme(newValue);
-      }),
+
+
           IconButton(
 
               onPressed: () {
+                setState(() {
 
-
+                });
+                print("Get.isDarkMode");
+                print(Get.isDarkMode);
+                Get.changeTheme(
+                    Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
               },
-              icon: SvgPicture.asset(
-                "assets/svg/light.svg",
-                width: 15.75,
-                height: 15.75,
-              )),
+              icon: Get.isDarkMode?Icon(Icons.light_mode,color: Colors.red,):Icon(Icons.dark_mode,color:  Colors.yellow,)),
           IconButton(
 
-              onPressed: () {},
+              onPressed: () {
+                print("Get.isDarkMode");
+                print(Get.isDarkMode);
+              },
               icon: SvgPicture.asset(
                 "assets/svg/notification-bing.svg",
                 width: 15.75,
-                height: 15.75,
+                height: 15.75,color: Get.isDarkMode? Color(0xffFFFFFF):Color(0xff1C3347),
               )),
           IconButton(
 
@@ -92,7 +75,7 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
               icon: SvgPicture.asset(
                 "assets/svg/search-normal.svg",
                 width: 15.75,
-                height: 15.75,
+                height: 15.75,color:Get.isDarkMode? Color(0xffFFFFFF):Color(0xff1C3347),
               )),
         ],
       ),
@@ -103,7 +86,7 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
               case 1:
                 return DashboardPage();
               case 2:
-                return Container(child: Text("2"));
+                return OrganizationPage();
               case 3:
                 return Container(child: Text("3"));
               case 4:
@@ -116,8 +99,8 @@ class _ViknBooksMainScreenState extends State<ViknBooksMainScreen> {
           }),
       bottomNavigationBar: Container(
         height: mHeight * .08,
-        decoration: const BoxDecoration(
-            color: Color(0xffFFFFFF),
+        decoration:  BoxDecoration(
+            color:Get.isDarkMode? Color(0xffFFFFFF):Color(0xff1C3347),
             border: Border(top: BorderSide(color: Color(0xffC8C8C8)))),
         child: Padding(
           padding: const EdgeInsets.only(left: 12.0),
