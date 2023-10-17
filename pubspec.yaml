@@ -52,7 +52,18 @@ dev_dependencies:
   intl: ^0.18.1
   syncfusion_flutter_charts: ^23.1.38
   get: ^4.6.5
+  shared_preferences: ^2.2.1
+  flutter_bloc: ^8.1.2
   http:
+  hive: ^2.2.3
+  hive_flutter:
+  quick_actions:
+  flutter_datetime_picker:
+  flutter_overlay_loader: ^2.0.0
+  connectivity_plus: ^5.0.0
+  flutter_slidable:
+  flutter_switch:
+  #connectivity_plus:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -90,6 +101,135 @@ flutter:
     - assets/svg/building-bank.svg
     - assets/svg/cash.svg
     - assets/svg/cash-banknote.svg
+    - assets/svg/customer.svg
+    - assets/svg/sale.svg
+    - assets/svg/purchase.svg
+    - assets/svg/product.svg
+    - assets/svg/expense.svg
+    - assets/svg/sale_report.svg
+    - assets/new/ledger.png
+    - assets/new/contact.png
+    - assets/new/pymt.png
+    - assets/new/rcpt.png
+    - assets/new/jourl.png
+    - assets/new/tax.png
+    - assets/new/epns.png
+    - assets/new/salesestimate.png
+    - assets/new/salesorder.png
+    - assets/new/salesinvoice.png
+    - assets/new/salesReturn.png
+    - assets/new/purorder.png
+    - assets/new/purInvoice.png
+    - assets/new/purReturn.png
+    - assets/new/brand.png
+    - assets/new/productgroup.png
+    - assets/new/category.png
+    - assets/new/products.png
+    - assets/new/rte.png
+    - assets/new/unit.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/Vector.png
+    - assets/svg/dashboard-reference.svg
+    - assets/svg/book.svg
+    - assets/svg/list(1).svg
+    - assets/svg/report(1).svg
+    - assets/svg/Blank.svg
+    - assets/svg/favorite.svg
+    - assets/svg/edit.svg
+    - assets/svg/notification-bing.svg
+    - assets/svg/search-normal.svg
+    - assets/svg/light.svg
+    - assets/svg/moneybag.svg
+    - assets/svg/clock.svg
+    - assets/svg/calendar.svg
+    - assets/png/building-bank.png
+    - assets/png/cash.png
+    - assets/png/cash-banknote.png
+    - assets/svg/menu_dash.svg
+    - assets/svg/menu_dash2.svg
+    - assets/svg/report-analytics.svg
+    - assets/svg/Person.svg
+    - assets/svg/building-bank.svg
+    - assets/svg/cash.svg
+    - assets/svg/cash-banknote.svg
+    - assets/svg/customer.svg
+    - assets/svg/sale.svg
+    - assets/svg/purchase.svg
+    - assets/svg/product.svg
+    - assets/svg/expense.svg
+    - assets/svg/sale_report.svg
+    - assets/new/ledger.png
+    - assets/new/contact.png
+    - assets/new/pymt.png
+    - assets/new/rcpt.png
+    - assets/new/jourl.png
+    - assets/new/tax.png
+    - assets/new/epns.png
+    - assets/new/salesestimate.png
+    - assets/new/salesorder.png
+    - assets/new/salesinvoice.png
+    - assets/new/salesReturn.png
+    - assets/new/purorder.png
+    - assets/new/purInvoice.png
+    - assets/new/purReturn.png
+    - assets/new/brand.png
+    - assets/new/productgroup.png
+    - assets/new/category.png
+    - assets/new/products.png
+    - assets/new/rte.png
+    - assets/new/unit.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/stockorder.png
+    - assets/new/Vector.png
+    - assets/svg/printer.svg
+    - assets/svg/contacts.svg
+    - assets/svg/information.svg
+    - assets/svg/language-hiragana(1).svg
+    - assets/svg/edits.svg
+    - assets/svg/logout.svg
+    - assets/svg/receipt.svg
+    - assets/png/receipt.png
+    - assets/png/route.png
+    - assets/png/warehouse.png
+    - assets/svg/arrow-down-to-dot.svg
+    - assets/svg/arrow-down-up-dot.svg
+    - assets/svg/note-favorite.svg
+    - assets/svg/barcode.svg
+    - assets/svg/share.svg
+    - assets/svg/send.svg
+    - assets/png/stock_order.png
+    - assets/svg/ledger.svg
+    - assets/svg/contact.svg
+    - assets/svg/payment1.svg
+    - assets/svg/receipt1.svg
+    - assets/svg/journal.svg
+    - assets/svg/heart-filled.svg
+    - assets/svg/edit_pen.svg
+    - assets/svg/brands.svg
+    - assets/svg/product_group.svg
+    - assets/svg/product_category.svg
+    - assets/svg/products1.svg
+    - assets/svg/search.svg
+    - assets/svg/delete.svg
+    - assets/svg/settings-2.svg
+    - assets/svg/add.svg
+    - assets/svg/Icon.svg
+    - assets/svg/call-calling.svg
+    - assets/svg/chat.svg
+    - assets/svg/settings.svg
+    - assets/svg/user-2.svg
+    - assets/svg/user-cog.svg
+    - assets/svg/git-branch.svg
+    - assets/svg/list-numbers.svg
+
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
